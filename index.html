@@ -4,26 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Signup Form with Captcha</title>
   </head>
   <body>
     <div class="heading">
       <h1>Create an account</h1>
     </div>
-    <form class="signup-form">
-      <label for="firstName"> First Name </label>
-      <input type="text" name="firstName" id="firstName" />
-      <label for="lastName"> Last Name </label>
-      <input type="text" name="lastName" id="lastName" />
-      <label htmlFor="email"> Email </label>
-      <input type="email" id="email" name="email" />
-      <label for="password"> Password </label>
-      <input type="password" id="password" name="password" />
-      <canvas id="captcha" width="400px" height="60px"></canvas>
-      <label for="captcha">Captcha</label>
-      <input type="text" name="captcha" id="captcha" required />
-      <button type="submit">Signup</button>
-    </form>
+    <div class="signup-form">
+      <form>
+        <label for="firstName"> First Name </label>
+        <input type="text" name="firstName" id="firstName" />
+        <label for="lastName"> Last Name </label>
+        <input type="text" name="lastName" id="lastName" />
+        <label htmlFor="email"> Email </label>
+        <input type="email" id="email" name="email" />
+        <label for="password"> Password </label>
+        <input type="password" id="password" name="password" />
+        <canvas id="captcha" width="400px" height="60px"></canvas>
+        <label for="captcha">Captcha</label>
+        <input type="text" name="captcha" id="captcha" required />
+        <p class="hide captcha-invalid-message">
+          Captcha is not valid. Try again
+        </p>
+        <button type="submit">Signup</button>
+      </form>
+      <div class="hide success-message">
+        <h2>✅ Signed up</h2>
+        <pre></pre>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

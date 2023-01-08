@@ -59,8 +59,6 @@ button:focus-visible {
 }
 
 .signup-form {
-  display: flex;
-  flex-direction: column;
   padding: 2rem 2.4rem;
   background-color: var(--form-bg);
   max-width: 450px;
@@ -69,6 +67,11 @@ button:focus-visible {
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
   font-size: 18px;
   line-height: 1.5;
+}
+
+.signup-form form {
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-form label {
@@ -88,6 +91,14 @@ button:focus-visible {
 
 canvas {
   display: table;
+}
+
+.hide {
+  display: none;
+}
+
+.captcha-invalid-message {
+  font-size: 15px;
 }
 
 

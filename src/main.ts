@@ -24,12 +24,13 @@ function randomSixDigitCaptcha(): string {
   return text.join('');
 }
 
-const randomCaptcha = randomSixDigitCaptcha();
+let randomCaptcha = randomSixDigitCaptcha();
 function draw() {
   const captcha = document.getElementById('captcha');
   if (captcha && captcha instanceof HTMLCanvasElement) {
     const ctx = captcha.getContext('2d');
     if (!ctx) return;
+    ctx.clearRect(0, 0, captcha.width, captcha.height);
     const x = captcha.width / 2;
     ctx.font = '30px serif';
     ctx.textAlign = 'center';
@@ -53,3 +54,47 @@ window
   });
 
 draw();
+
+const form = document.querySelector('.signup-form form');
+function onSubmitForm(e: SubmitEvent) {
+  e.preventDefault();
+  if (!form || !(form instanceof HTMLFormElement)) return;
+  const { email, firstName, lastName, captcha, password } = form.elements;
+  // Check captcha
+  if (!captcha) return;
+  const captchaInvalidMessage = document.querySelector(
+    '.captcha-invalid-message'
+  );
+  if (captcha.value !== randomCaptcha) {
+    captchaInvalidMessage?.classList.remove('hide');
+    captcha.value = '';
+    randomCaptcha = randomSixDigitCaptcha();
+    draw();
+    return;
+  }
+  if (!email || !firstName || !lastName || !password) return;
+  captchaInvalidMessage?.classList.add('hide');
+  showSuccess({
+    email: email.value,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    password: password.value,
+  });
+  return;
+}
+if (form && form instanceof HTMLFormElement) {
+  form.addEventListener('submit', onSubmitForm);
+}
+
+function showSuccess(props) {
+  if (form && form instanceof HTMLFormElement) {
+    form.removeEventListener('submit', onSubmitForm);
+    form.remove();
+  }
+  const successMessage = document.querySelector('.success-message');
+  if (!successMessage) return;
+  const pre = successMessage.querySelector('pre');
+  if (!pre) return;
+  pre.innerHTML = JSON.stringify(props, null, 2);
+  successMessage.classList.remove('hide');
+}
