@@ -3,12 +3,13 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  --form-bg: #777;
+  --form-bg: #252728;
   --input-border-color: #555;
+  --input-bg-color: #35373b;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #111;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,12 +46,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--input-bg-color);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: opacity 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  opacity: 0.7;
 }
 button:focus,
 button:focus-visible {
@@ -60,7 +61,7 @@ button:focus-visible {
 .signup-form {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.2rem;
+  padding: 2rem 2.4rem;
   background-color: var(--form-bg);
   max-width: 450px;
   margin: 0 auto;
@@ -79,9 +80,10 @@ button:focus-visible {
 .signup-form input {
   margin-bottom: 1rem;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   border: 2px solid;
   border-color: var(--input-border-color);
+  background-color: var(--input-bg-color);
 }
 
 canvas {
@@ -95,6 +97,7 @@ canvas {
     background-color: #eee;
   --form-bg: #fff;
   --input-border-color: #eee;
+  --input-bg-color: #fff;
   }
   a:hover {
     color: #747bff;

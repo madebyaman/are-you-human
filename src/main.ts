@@ -33,7 +33,23 @@ function draw() {
     const x = captcha.width / 2;
     ctx.font = '30px serif';
     ctx.textAlign = 'center';
+    ctx.fillStyle = colorScheme === 'light' ? '#22222' : '#ffffff';
     ctx.fillText(randomCaptcha, x, 45);
   }
 }
+
+let colorScheme: 'light' | 'dark' = 'light';
+if (
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches
+) {
+  colorScheme = 'dark';
+}
+window
+  .matchMedia('(prefers-color-scheme: dark)')
+  .addEventListener('change', (event) => {
+    colorScheme = event.matches ? 'dark' : 'light';
+    draw();
+  });
+
 draw();
