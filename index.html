@@ -7,8 +7,26 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <form>
+    <form class="signup-form">
+      <label>
+        First Name
+        <input type="text" name="firstName" />
+      </label>
+      <label>
+        Last Name
+        <input type="text" name="lastName" />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" />
+      </label>
       <canvas id="captcha"></canvas>
+      <input type="text" name="captcha" />
+      <button type="submit">Signup</button>
     </form>
     <script type="module" src="/src/main.ts"></script>
   </body>

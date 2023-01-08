@@ -24,13 +24,13 @@ function randomSixDigitCaptcha(): string {
   return text.join('');
 }
 
+const randomCaptcha = randomSixDigitCaptcha();
 function draw() {
   const captcha = document.getElementById('captcha');
   if (captcha && captcha instanceof HTMLCanvasElement) {
     const ctx = captcha.getContext('2d');
     if (!ctx) return;
     ctx.font = '48px serif';
-    const randomCaptcha = randomSixDigitCaptcha();
     ctx.fillText(randomCaptcha, 10, 40);
   }
 }
