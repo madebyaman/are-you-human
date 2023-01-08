@@ -7,25 +7,21 @@
     <title>Vite + TS</title>
   </head>
   <body>
+    <div class="heading">
+      <h1>Create an account</h1>
+    </div>
     <form class="signup-form">
-      <label>
-        First Name
-        <input type="text" name="firstName" />
-      </label>
-      <label>
-        Last Name
-        <input type="text" name="lastName" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <canvas id="captcha"></canvas>
-      <input type="text" name="captcha" />
+      <label for="firstName"> First Name </label>
+      <input type="text" name="firstName" id="firstName" />
+      <label for="lastName"> Last Name </label>
+      <input type="text" name="lastName" id="lastName" />
+      <label htmlFor="email"> Email </label>
+      <input type="email" id="email" name="email" />
+      <label for="password"> Password </label>
+      <input type="password" id="password" name="password" />
+      <canvas id="captcha" width="400px" height="60px"></canvas>
+      <label for="captcha">Captcha</label>
+      <input type="text" name="captcha" id="captcha" required />
       <button type="submit">Signup</button>
     </form>
     <script type="module" src="/src/main.ts"></script>

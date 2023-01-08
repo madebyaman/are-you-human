@@ -3,6 +3,8 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  --form-bg: #777;
+  --input-border-color: #555;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -31,6 +33,9 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  max-width: 450px;
+  margin: 2.5rem auto 1.5rem;
 }
 
 button {
@@ -52,10 +57,44 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  background-color: var(--form-bg);
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.signup-form label {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.signup-form input {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid;
+  border-color: var(--input-border-color);
+}
+
+canvas {
+  display: table;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #eee;
+  --form-bg: #fff;
+  --input-border-color: #eee;
   }
   a:hover {
     color: #747bff;

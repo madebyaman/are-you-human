@@ -30,8 +30,10 @@ function draw() {
   if (captcha && captcha instanceof HTMLCanvasElement) {
     const ctx = captcha.getContext('2d');
     if (!ctx) return;
-    ctx.font = '48px serif';
-    ctx.fillText(randomCaptcha, 10, 40);
+    const x = captcha.width / 2;
+    ctx.font = '30px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(randomCaptcha, x, 45);
   }
 }
 draw();
