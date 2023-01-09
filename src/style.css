@@ -105,7 +105,7 @@ canvas {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #eee;
+    background-color: #f1f5f9;
   --form-bg: #fff;
   --input-border-color: #eee;
   --input-bg-color: #fff;
